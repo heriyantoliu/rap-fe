@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Purchase Document Exceptions</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>000</MSGNR>
+     <TEXT>Purchase Document &amp;1 Created</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Purchase Document Item &amp;1 Created</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Purchase Document &amp;1 Approved</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Purchase Document &amp;1 Closed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Purchase Document &amp;1 Deleted</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>005</MSGNR>
+     <TEXT>Purchase Document &amp;1 Already Exists in DB Table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>006</MSGNR>
+     <TEXT>Purchase Document &amp;1 Already Exists in Buffer Table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>007</MSGNR>
+     <TEXT>Purchase Document Item &amp;1 Already Exists in DB Table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>008</MSGNR>
+     <TEXT>Purchase Document Item &amp;1 Already Exists in Buffet Table</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>009</MSGNR>
+     <TEXT>Purchase Document is Initial</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>010</MSGNR>
+     <TEXT>Purchase Document Item is Initial</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>011</MSGNR>
+     <TEXT>Purchase Document &amp;1 Updated</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>012</MSGNR>
+     <TEXT>Purchase Document Item &amp;1 Updated</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>013</MSGNR>
+     <TEXT>Purchase Document &amp;1 is Already Approved</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>014</MSGNR>
+     <TEXT>Purchase Document &amp;1 is Already Closed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZHH_PURCHDOC_EXCP</ARBGB>
+     <MSGNR>015</MSGNR>
+     <TEXT>Purchase Document Item &amp;1 Deleted</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

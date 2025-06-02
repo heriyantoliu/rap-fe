@@ -1,0 +1,12 @@
+ CLASS ztcl_i_hh_purchdocoverallprice DEFINITION
+  PUBLIC FINAL
+  CREATE PUBLIC
+  FOR TESTING.
+
+   PUBLIC SECTION.
+   PROTECTED SECTION.
+   PRIVATE SECTION.
+ ENDCLASS.
+
+ CLASS ztcl_i_hh_purchdocoverallprice IMPLEMENTATION.
+ ENDCLASS.

@@ -1,0 +1,31 @@
+unmanaged implementation in class zbp_i_hh_purchasedocument_u unique;
+strict ( 2 );
+
+define behavior for ZI_HH_PurchaseDocument_U alias PurchaseDocument
+//late numbering
+lock master
+authorization master ( instance )
+etag master lchg_date_time
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) PurchaseDocument, crea_uname, crea_date_time, lchg_date_time, lchg_uname;
+  association _PurchaseDocumentItem { create; }
+
+  action Approve_Order result [1] $self;
+  action Reject_Order result [1] $self;
+}
+
+define behavior for ZI_HH_PurchaseDocumentItem_U alias PurchaseDocumentItem
+//late numbering
+lock dependent by _PurchaseDocument
+authorization dependent by _PurchaseDocument
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) PurchaseDocument, PurchaseDocumentItem;
+  field ( mandatory ) Price, Quantity, QuantityUnit;
+  association _PurchaseDocument;
+}

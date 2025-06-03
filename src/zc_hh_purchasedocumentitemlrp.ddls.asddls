@@ -70,7 +70,7 @@ define view entity ZC_HH_PurchaseDocumentItemLRP
       @EndUserText.label: 'Last Changed At'
       lchg_date_time,
       @EndUserText.label: 'Last Changed By'
-      lchg_name,
+      lchg_uname,
 
       /* Associations */
       _Currency,

@@ -40,7 +40,7 @@ define view entity ZI_HH_PurchaseDocumentItem_U
       crea_date_time,
       crea_uname,
       lchg_date_time,
-      lchg_name,
+      lchg_uname,
 
       /* Associations */
       _Currency,

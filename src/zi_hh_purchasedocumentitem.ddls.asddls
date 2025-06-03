@@ -57,7 +57,7 @@ define view entity ZI_HH_PurchaseDocumentItem
       crea_date_time,
       crea_uname,
       lchg_date_time,
-      lchg_name,
+      lchg_uname,
 
       _PurchaseDocument,
       _QuantityUnitOfMeasure,

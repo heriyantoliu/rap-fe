@@ -31,6 +31,7 @@ define view entity ZI_HH_PurchaseDocumentItem
       description                                                  as Description,
 
       vendor                                                       as Vendor,
+      @ObjectModel.foreignKey.association: '_VendorType'
       vendortype                                                   as VendorType,
 
       @DefaultAggregation: #NONE

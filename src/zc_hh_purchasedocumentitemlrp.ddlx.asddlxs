@@ -1,0 +1,80 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: { typeName: 'Purchase Document Item',
+                  typeNamePlural: 'Purchase Document Items',
+                  imageUrl: 'PurchaseDocumentItemImageURL',
+                  description: { value: 'PurchaseDocumentItem', type: #STANDARD },
+                  title: { value: 'Description', type: #STANDARD } }
+
+annotate entity ZC_HH_PurchaseDocumentItemLRP with
+
+{
+  @UI.facet: [ { id: 'PriceDataPointFacet', purpose: #HEADER, type: #DATAPOINT_REFERENCE, targetQualifier: 'Price' },
+               { id: 'QuantityDataPointFacet', purpose: #HEADER, type: #DATAPOINT_REFERENCE, targetQualifier: 'Quantity' },
+               { id: 'OverallItemPriceDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'OverallItemPrice' },
+               { id: 'VendorRatingDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'VendorRating' },
+               { label: 'Purchase Document',
+                 type: #COLLECTION,
+                 id: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD },
+               { label: 'Basic Data',
+                 type: #FIELDGROUP_REFERENCE,
+                 id: 'BasicDataFieldGroupReferenceFacet',
+                 parentId: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD,
+                 targetQualifier: 'BasicDataFieldGroup',
+                 position: 10 },
+               { label: 'Purchasing Data',
+                 type: #FIELDGROUP_REFERENCE,
+                 id: 'PurchasingDataFieldGroupReferenceFacet',
+                 parentId: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD,
+                 targetQualifier: 'PurchasingDocumentFieldGroup',
+                 position: 20 } ]
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  PurchaseDocumentItemImageURL;
+
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 10, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 10 } ]
+  PurchaseDocument;
+
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 20, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 20, importance: #HIGH } ]
+  PurchaseDocumentItem;
+
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 30, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  Description;
+
+  @UI.dataPoint: { visualization: #NUMBER, title: 'Price' }
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 40, importance: #HIGH } ]
+  Price;
+
+  @UI.dataPoint: { visualization: #NUMBER, title: 'Quantity' }
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 50, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 40, importance: #HIGH } ]
+  Quantity;
+
+  @UI.dataPoint: { visualization: #NUMBER, title: 'Overall Item Price' }
+  @UI.lineItem: [ { position: 50, importance: #HIGH } ]
+  OverallItemPrice;
+
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 10, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 60, importance: #HIGH } ]
+  Vendor;
+
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 20, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 70, importance: #HIGH } ]
+  VendorType;
+
+  @UI.dataPoint: { visualization: #RATING, title: 'Vendor Rating' }
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.textArrangement: #TEXT_ONLY
+  VendorRating;
+}

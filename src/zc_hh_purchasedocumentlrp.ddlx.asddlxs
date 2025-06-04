@@ -1,0 +1,156 @@
+@Metadata.layer: #CUSTOMER
+
+@UI.headerInfo: { typeName: 'Purchase Document',
+                  typeNamePlural: 'Purchase Documents',
+                  imageUrl: 'PurchaseDocumentImageURL',
+                  description: { value: 'Description', type: #STANDARD },
+                  title: { value: 'PurchaseDocument', type: #STANDARD } }
+
+annotate entity ZC_HH_PurchaseDocumentLRP with
+
+{
+  @UI.facet: [ { id: 'StatusDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'Status',
+                 position: 10 },
+               { id: 'OverallPriceDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'OverallPrice',
+                 position: 20 },
+               { id: 'ApprovalRequiredDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'IsApprovalRequired',
+                 position: 30 },
+               { id: 'PriorityDataPointFacet',
+                 purpose: #HEADER,
+                 type: #DATAPOINT_REFERENCE,
+                 targetQualifier: 'Priority',
+                 position: 40 },
+               { label: 'Purchase Document',
+                 type: #COLLECTION,
+                 id: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD,
+                 position: 10 },
+               { label: 'Basic Data',
+                 type: #FIELDGROUP_REFERENCE,
+                 id: 'BasicDataFieldGroupReferenceFacet',
+                 parentId: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD,
+                 targetQualifier: 'BasicDataFieldGroup',
+                 position: 10 },
+               { label: 'Purchasing Data',
+                 type: #FIELDGROUP_REFERENCE,
+                 id: 'PurchasingDocumentFieldGroupReferenceFacet',
+                 parentId: 'PurchaseDocumentCollectionFacet',
+                 purpose: #STANDARD,
+                 targetQualifier: 'PurchasingDocumentFieldGroup',
+                 position: 20 },
+               { label: 'Purchase Document Items',
+                 type: #LINEITEM_REFERENCE,
+                 id: 'PurchaseDocumentItemsLineItemReferenceFacet',
+                 purpose: #STANDARD,
+                 targetElement: '_PurchaseDocumentItem',
+                 position: 20 } ]
+  @UI.lineItem: [ { position: 10, importance: #HIGH } ]
+  PurchaseDocumentImageURL;
+
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 10, importance: #HIGH } ]
+  @UI.identification: [ { type: #FOR_ACTION, dataAction: 'Approve', position: 10, label: 'Approve' },
+                        { type: #FOR_ACTION, dataAction: 'Reject',  position: 20, label: 'Reject'  } ]
+  @UI.lineItem: [ { position: 10, importance: #HIGH },
+                  { type: #FOR_ACTION, dataAction: 'Approve', position: 10, label: 'Approve' },
+                  { type: #FOR_ACTION, dataAction: 'Reject', position: 20, label: 'Reject' } ]
+  @UI.selectionField: [ { position: 10 } ]
+  PurchaseDocument;
+
+  @Consumption.filter.hidden: true
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 20, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 30, importance: #HIGH } ]
+  @UI.selectionField: [ { exclude: true } ]
+  Description;
+
+  @UI.dataPoint.title: 'Priority'
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 30, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 40, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 20 } ]
+  @UI.textArrangement: #TEXT_ONLY
+  Priority;
+
+  @Consumption.filter.hidden: true
+  @UI.dataPoint: { title: 'Overall Price', criticality: 'OverallPriceCriticality' }
+  @UI.lineItem: [ { position: 50,
+                    importance: #HIGH,
+                    criticality: 'OverallPriceCriticality',
+                    value: 'OverallPrice',
+                    criticalityRepresentation: #WITHOUT_ICON } ]
+  @UI.selectionField: [ { exclude: true } ]
+  OverallPrice;
+
+  @Consumption.filter.hidden: true
+  @UI.selectionField: [ { exclude: true } ]
+  Currency;
+
+  @Consumption.filter.hidden: true
+  @UI.selectionField: [ { exclude: true } ]
+  OverallPriceCriticality;
+
+  @UI.dataPoint.title: 'Status'
+  @UI.lineItem: [ { position: 60, importance: #HIGH } ]
+  @UI.selectionField: [ { position: 30 } ]
+  @UI.textArrangement: #TEXT_ONLY
+  Status;
+
+  @UI.fieldGroup: [ { qualifier: 'PurchasingDocumentFieldGroup', position: 40, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 70,
+                    importance: #HIGH,
+                    type: #AS_CONTACT,
+                    value: '_PurchasingOrganization',
+                    label: 'Purchasing Organization' } ]
+  @UI.selectionField: [ { position: 40 } ]
+  PurchasingOrganization;
+
+  @UI.dataPoint: { title: 'Is Approval Required', criticality: 'OverallPriceCriticality' }
+  @UI.lineItem: [ { position: 80,
+                    importance: #HIGH,
+                    criticality: 'OverallPriceCriticality',
+                    value: 'IsApprovalRequired',
+                    criticalityRepresentation: #WITH_ICON } ]
+  @UI.textArrangement: #TEXT_ONLY
+  IsApprovalRequired;
+
+  @Consumption.filter.hidden: true
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 10, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 90, importance: #MEDIUM } ]
+  @UI.selectionField: [ { exclude: true } ]
+  crea_date_time;
+
+  @Consumption.filter.hidden: true
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 20, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 100, importance: #MEDIUM } ]
+  @UI.selectionField: [ { exclude: true } ]
+  crea_uname;
+
+  @Consumption.filter.hidden: true
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 30, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 110, importance: #MEDIUM } ]
+  @UI.selectionField: [ { exclude: true } ]
+  lchg_date_time;
+
+  @Consumption.filter.hidden: true
+  @UI.fieldGroup: [ { qualifier: 'BasicDataFieldGroup', position: 40, importance: #HIGH } ]
+  @UI.lineItem: [ { position: 120, importance: #MEDIUM } ]
+  @UI.selectionField: [ { exclude: true } ]
+  lchg_uname;
+
+
+  @Consumption.filter.hidden: true
+  @UI.selectionField: [ { exclude: true } ]
+  _Currency;
+
+  @Consumption.filter.hidden: true
+  @UI.selectionField: [ { exclude: true } ]
+  _IsApprovalRequired;
+}

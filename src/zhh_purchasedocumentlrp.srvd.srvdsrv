@@ -1,0 +1,20 @@
+@EndUserText.label: 'Purchase Document List Report'
+@ObjectModel.leadingEntity: { name: 'ZC_HH_PurchaseDocumentLRP' }
+define service ZHH_PurchaseDocumentLRP {
+  expose ZC_HH_PurchaseDocumentLRP     as PurchaseDocument;
+  expose ZC_HH_PurchaseDocumentItemLRP as PurchaseDocumentItem;
+  expose ZI_HH_PurchaseDocument_U      as PurchaseDocument_U;
+  expose ZI_HH_PurchaseDocumentItem_U  as PurchaseDocumentItem_U;
+  expose ZI_HH_Indicator               as ApprovalRequired;
+  expose I_Currency                    as Currency;
+  expose I_UnitOfMeasure               as QuantityUnitofMeasure;
+  expose ZI_HH_VendorType              as VendorType;
+  expose ZC_HH_StatusVH                as StatusVH;
+  expose ZC_HH_PriorityVH              as PriorityVH;
+  expose ZI_HH_PurchDocPriority        as Priority;
+  expose ZI_HH_PurchDocStatus          as Status;
+  expose ZI_HH_PurchDocOverallPrice    as PurchDocOveralPrice;
+  expose ZI_HH_PurchaseDocument        as PurchaseDocumentBase;
+  expose ZI_HH_PurchaseDocumentItem    as PurchaseDocumentItemBase;
+  expose ZI_HH_PurchasingOrganization  as PurchasingOrganization;
+}

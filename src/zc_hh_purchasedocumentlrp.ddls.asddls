@@ -9,7 +9,7 @@
 
 @VDM.viewType: #CONSUMPTION
 
-define root view entity ZC_HH_PurchaseDocumentLRP  
+define root view entity ZC_HH_PurchaseDocumentLRP
   as projection on ZI_HH_PurchaseDocument_U
 
 {
@@ -66,12 +66,14 @@ define root view entity ZC_HH_PurchaseDocumentLRP
 
       @Consumption.filter.hidden: true
       @EndUserText.label: 'Image'
+      @Semantics.imageUrl: true
       PurchaseDocumentImageURL,
 
       /* Associations */
       _Currency,
       _Priority,
       _PurchaseDocumentItem: redirected to composition child ZC_HH_PurchaseDocumentItemLRP,
+
       _PurchasingOrganization,
       _Status,
       _IsApprovalRequired

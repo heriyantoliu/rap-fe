@@ -13,6 +13,8 @@ CLASS zcl_hh_purch_doc_gen_data DEFINITION
     METHODS fill_vendor.
     METHODS fill_status.
     METHODS fill_purchorg.
+    METHODS fill_indicator.
+    METHODS fill_vendor_type.
 ENDCLASS.
 
 
@@ -25,6 +27,8 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
     fill_vendor( ).
     fill_status( ).
     fill_purchorg( ).
+    fill_indicator( ).
+    fill_vendor_type( ).
   ENDMETHOD.
 
   METHOD clear_data.
@@ -33,6 +37,9 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
     DELETE FROM zhh_purchdocitem.
     DELETE FROM zhh_purchdocsts.
     DELETE FROM zhh_purchorg.
+    DELETE FROM zhh_indicator.
+    DELETE FROM zhh_indicator_t.
+    DELETE FROM zhh_purchvdrtyp.
   ENDMETHOD.
 
   METHOD fill_priority.
@@ -175,6 +182,18 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
 
     INSERT zhh_purchdoc FROM TABLE @lt_purchasedocuments.
+
+    GET TIME STAMP FIELD DATA(lv_date).
+*    data(lv_date) = cl_abap_context_info=>get_system_date( ).
+    DATA(lv_uname) = sy-uname.
+
+    UPDATE zhh_purchdoc
+      SET PurchaseDocumentImageURL = 'https://cdn-icons-png.flaticon.com/512/3097/3097180.png',
+          crea_date_time = @lv_date,
+          crea_uname = @lv_uname,
+          lchg_date_time = @lv_date,
+          lchg_uname = @lv_uname
+      WHERE PurchaseDocumentImageURL IS INITIAL.
   ENDMETHOD.
 
   METHOD fill_purchase_doc_item.
@@ -185,7 +204,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Laptops for office staff (i5, 8GB RAM)'
                     Price                = 1000
                     Quantity             = 25
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '001'
@@ -193,7 +212,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Laptop accessories (mice, keyboards)'
                     Price                = 50
                     Quantity             = 50
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -202,7 +221,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office chairs (ergonomic, adjustable)'
                     Price                = 150
                     Quantity             = 30
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '002'
@@ -210,7 +229,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Executive chairs (leather, high-back)'
                     Price                = 250
                     Quantity             = 20
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR04'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -219,7 +238,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Desks for office (adjustable height)'
                     Price                = 300
                     Quantity             = 40
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '003'
@@ -227,7 +246,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Workstations (with multiple screens)'
                     Price                = 400
                     Quantity             = 15
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -236,7 +255,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Projector for conference room'
                     Price                = 1200
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR05'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '004'
@@ -244,7 +263,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Projection screens (motorized)'
                     Price                = 500
                     Quantity             = 12
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'IDR' ) TO lt_purchase_items.
 
@@ -253,7 +272,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'External hard drives (2TB)'
                     Price                = 100
                     Quantity             = 40
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '005'
@@ -261,7 +280,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Network storage (5TB NAS)'
                     Price                = 1500
                     Quantity             = 5
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -270,7 +289,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Air conditioning units for office'
                     Price                = 800
                     Quantity             = 12
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR04'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '006'
@@ -278,7 +297,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'HVAC filters and replacements'
                     Price                = 150
                     Quantity             = 50
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '008'
@@ -286,7 +305,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office decoration (plants, artwork)'
                     Price                = 100
                     Quantity             = 30
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '008'
@@ -294,7 +313,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office wall clocks'
                     Price                = 50
                     Quantity             = 50
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -303,7 +322,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Project management software licenses'
                     Price                = 800
                     Quantity             = 15
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '009'
@@ -311,7 +330,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Software licenses for accounting system (annual)'
                     Price                = 1200
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -320,7 +339,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office air purifiers (HEPA filter)'
                     Price                = 1500000
                     Quantity             = 5
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR05'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '010'
@@ -328,7 +347,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Air purifiers for large rooms'
                     Price                = 1200000
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'IDR' ) TO lt_purchase_items.
 
@@ -337,7 +356,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office lighting fixtures (LED, dimmable)'
                     Price                = 75
                     Quantity             = 50
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '011'
@@ -345,7 +364,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'LED light bulbs (for office use)'
                     Price                = 30
                     Quantity             = 150
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -354,7 +373,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Business software (CRM and ERP licenses)'
                     Price                = 3000
                     Quantity             = 5
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR04'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '012'
@@ -362,7 +381,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'HR management software licenses'
                     Price                = 1500
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR05'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -371,7 +390,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Ergonomic office chairs (adjustable)'
                     Price                = 300
                     Quantity             = 30
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '013'
@@ -379,7 +398,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Executive office chairs (leather, high-back)'
                     Price                = 450
                     Quantity             = 20
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -388,7 +407,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Fire extinguishers (office use)'
                     Price                = 150
                     Quantity             = 20
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '014'
@@ -405,7 +424,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Printer maintenance service contract (12 months)'
                     Price                = 250
                     Quantity             = 1
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '015'
@@ -422,7 +441,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office IT accessories (keyboard, mouse, etc.)'
                     Price                = 25
                     Quantity             = 100
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '016'
@@ -430,7 +449,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'External hard drives (2TB)'
                     Price                = 150
                     Quantity             = 20
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR04'
                     Currency             = 'IDR' ) TO lt_purchase_items.
 
@@ -464,7 +483,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Patch panels (24 ports, rack mount)'
                     Price                = 100
                     Quantity             = 15
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -473,7 +492,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Conference room audio systems (speakers, microphonenumbers)'
                     Price                = 500
                     Quantity             = 5
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '019'
@@ -481,7 +500,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Conference room speaker system (wireless)'
                     Price                = 250
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -498,7 +517,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office cleaning services (monthly)'
                     Price                = 300
                     Quantity             = 12
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'IDR' ) TO lt_purchase_items.
 
@@ -507,7 +526,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office whiteboards (magnetic, 4x6 ft)'
                     Price                = 200
                     Quantity             = 25
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '021'
@@ -515,7 +534,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office presentation tools (projectors, screens)'
                     Price                = 500
                     Quantity             = 15
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -524,7 +543,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Air conditioning units for office spaces'
                     Price                = 800
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR05'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '022'
@@ -532,7 +551,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'HVAC filters and replacements'
                     Price                = 150
                     Quantity             = 40
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'IDR' ) TO lt_purchase_items.
 
@@ -541,7 +560,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office security systems (cameras, alarms)'
                     Price                = 300
                     Quantity             = 20
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR03'
                     Currency             = 'EUR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '023'
@@ -549,7 +568,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Access control systems (cards, door readers)'
                     Price                = 250
                     Quantity             = 30
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR04'
                     Currency             = 'EUR' ) TO lt_purchase_items.
 
@@ -558,7 +577,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Network servers (rack-mountable)'
                     Price                = 2000
                     Quantity             = 8
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'USD' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '024'
@@ -566,7 +585,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Server software licenses (annual)'
                     Price                = 500
                     Quantity             = 15
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR05'
                     Currency             = 'USD' ) TO lt_purchase_items.
 
@@ -575,7 +594,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Office furniture (desks, chairs)'
                     Price                = 250
                     Quantity             = 50
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR02'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     APPEND VALUE #( PurchaseDocument     = '025'
@@ -583,10 +602,22 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     Description          = 'Meeting room furniture (conference tables, chairs)'
                     Price                = 500
                     Quantity             = 10
-                    QuantityUnit         = 'ST'
+                    QuantityUnit         = 'PC'
                     Vendor               = 'VDR01'
                     Currency             = 'IDR' ) TO lt_purchase_items.
     INSERT zhh_purchdocitem FROM TABLE @lt_purchase_items.
+
+    GET TIME STAMP FIELD DATA(lv_date).
+    DATA(lv_uname) = sy-uname.
+
+    UPDATE zhh_purchdocitem
+      SET purchasedocumentitemimageurl = 'https://cdn-icons-png.flaticon.com/512/1768/1768214.png',
+          crea_date_time = @lv_date,
+          crea_uname = @lv_uname,
+          lchg_date_time = @lv_date,
+          lchg_uname = @lv_uname,
+          vendortype = 'I'
+      WHERE PurchaseDocumentitemImageURL IS INITIAL.
   ENDMETHOD.
 
   METHOD fill_vendor.
@@ -629,6 +660,30 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
                     EmailAddress           = 'purchasing3@company.com'
                     PhoneNumber            = '+1 555-3000'
                     FaxNumber              = '+1 555-3001' ) TO lt_purch_org.
-    insert zhh_purchorg from table @lt_purch_org.
+    INSERT zhh_purchorg FROM TABLE @lt_purch_org.
+  ENDMETHOD.
+
+  METHOD fill_indicator.
+    DATA lt_indicator   TYPE TABLE OF zhh_indicator.
+    DATA lt_indicator_t TYPE TABLE OF zhh_indicator_t.
+
+    lt_indicator = VALUE #( ( domvalue_l = 'X' )
+                            ( domvalue_l = '' ) ).
+
+    lt_indicator_t = VALUE #( ddlanguage = 'E'
+                              ( domvalue_l = 'X' ddtext = 'Yes' )
+                              ( domvalue_l = '' ddtext = 'No' ) ).
+
+    INSERT zhh_indicator FROM TABLE @lt_indicator.
+    INSERT zhh_indicator_t FROM TABLE @lt_indicator_t.
+  ENDMETHOD.
+
+  METHOD fill_vendor_type.
+    DATA lt_vendor_type TYPE TABLE OF zhh_purchvdrtyp.
+
+    lt_vendor_type = VALUE #( ( vendortype = 'I' vendortypetext = 'Internal' )
+                              ( vendortype = 'E' vendortypetext = 'External' ) ).
+
+    INSERT zhh_purchvdrtyp FROM TABLE @lt_vendor_type.
   ENDMETHOD.
 ENDCLASS.

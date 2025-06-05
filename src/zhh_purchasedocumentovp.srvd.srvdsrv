@@ -1,0 +1,11 @@
+@EndUserText.label: 'Purchase Document OVP'
+@ObjectModel.leadingEntity.name: 'ZC_HH_PurchaseDocumentOVP'
+define service ZHH_PurchaseDocumentOVP {
+  expose ZC_HH_PurchaseDocumentOVP;
+  expose ZC_HH_PurchaseDocFilterOVP;
+  expose ZC_HH_PurchaseDocBudgetOVP;
+  expose ZC_HH_PurchaseDocsforApprOVP;
+  expose ZC_HH_PurchaseDocPendingOVP;
+  expose ZC_HH_PriorityVH;
+  expose ZC_HH_StatusVH;
+}

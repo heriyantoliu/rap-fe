@@ -55,131 +55,158 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
   METHOD fill_purchase_doc.
     DATA lt_purchasedocuments TYPE TABLE OF zhh_purchdoc.
 
-    APPEND VALUE #( PurchaseDocument       = '001'
-                    Description            = 'Office furniture and supplies for new branch'
-                    Status                 = 2
-                    Priority               = 1
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '002'
-                    Description            = 'Laptops for the IT department'
-                    Status                 = 1
-                    Priority               = 2
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '003'
-                    Description            = 'Office kitchen supplies (plates, utensils, etc.)'
-                    Status                 = 3
-                    Priority               = 3
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '004'
-                    Description            = 'Office printers and toner'
-                    Status                 = 2
-                    Priority               = 2
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '005'
-                    Description            = 'Conference room furniture (tables, chairs)'
-                    Status                 = 1
-                    Priority               = 1
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '006'
-                    Description            = 'Meeting room video conference equipment'
-                    Status                 = 1
-                    Priority               = 2
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '007'
-                    Description            = 'Network switches and routers for office network'
-                    Status                 = 2
-                    Priority               = 3
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '008'
-                    Description            = 'Office decoration (plants, artwork)'
-                    Status                 = 3
-                    Priority               = 2
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '009'
-                    Description            = 'Project management software licenses'
-                    Status                 = 2
-                    Priority               = 1
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '010'
-                    Description            = 'Office air purifiers and ventilation systems'
-                    Status                 = 1
-                    Priority               = 2
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '011'
-                    Description            = 'Office lighting fixtures (LED, dimmable)'
-                    Status                 = 3
-                    Priority               = 1
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '012'
-                    Description            = 'Business software (CRM and ERP licenses)'
-                    Status                 = 2
-                    Priority               = 3
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '013'
-                    Description            = 'Ergonomic office chairs'
-                    Status                 = 2
-                    Priority               = 1
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '014'
-                    Description            = 'Office safety equipment (fire extinguishers, first aid kits)'
-                    Status                 = 3
-                    Priority               = 2
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '015'
-                    Description            = 'Office printer maintenance and support contract'
-                    Status                 = 2
-                    Priority               = 3
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '016'
-                    Description            = 'Office IT accessories (keyboard, mouse, etc.)'
-                    Status                 = 3
-                    Priority               = 2
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '017'
-                    Description            = 'Office stationeries (paper, pens, notebooks)'
-                    Status                 = 1
-                    Priority               = 1
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '018'
-                    Description            = 'Networking cables and connectors'
-                    Status                 = 2
-                    Priority               = 2
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '019'
-                    Description            = 'Conference room audio systems'
-                    Status                 = 3
-                    Priority               = 1
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '020'
-                    Description            = 'Office cleaning supplies (disinfectants, cleaners)'
-                    Status                 = 2
-                    Priority               = 2
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '021'
-                    Description            = 'Office whiteboards and presentation equipment'
-                    Status                 = 1
-                    Priority               = 1
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '022'
-                    Description            = 'Air conditioning units for office spaces'
-                    Status                 = 3
-                    Priority               = 2
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '023'
-                    Description            = 'Office security systems (cameras, alarms)'
-                    Status                 = 2
-                    Priority               = 3
-                    PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '024'
-                    Description            = 'Office furniture (desks, filing cabinets)'
-                    Status                 = 3
-                    Priority               = 1
-                    PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
-    APPEND VALUE #( PurchaseDocument       = '025'
-                    Description            = 'Business travel agency services'
-                    Status                 = 1
-                    Priority               = 2
-                    PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '001'
+    "                 Description            = 'Office furniture and supplies for new branch'
+    "                 Status                 = 2
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '002'
+    "                 Description            = 'Laptops for the IT department'
+    "                 Status                 = 1
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '003'
+    "                 Description            = 'Office kitchen supplies (plates, utensils, etc.)'
+    "                 Status                 = 3
+    "                 Priority               = 3
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '004'
+    "                 Description            = 'Office printers and toner'
+    "                 Status                 = 2
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '005'
+    "                 Description            = 'Conference room furniture (tables, chairs)'
+    "                 Status                 = 1
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '006'
+    "                 Description            = 'Meeting room video conference equipment'
+    "                 Status                 = 1
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '007'
+    "                 Description            = 'Network switches and routers for office network'
+    "                 Status                 = 2
+    "                 Priority               = 3
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '008'
+    "                 Description            = 'Office decoration (plants, artwork)'
+    "                 Status                 = 3
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '009'
+    "                 Description            = 'Project management software licenses'
+    "                 Status                 = 2
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '010'
+    "                 Description            = 'Office air purifiers and ventilation systems'
+    "                 Status                 = 1
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '011'
+    "                 Description            = 'Office lighting fixtures (LED, dimmable)'
+    "                 Status                 = 3
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '012'
+    "                 Description            = 'Business software (CRM and ERP licenses)'
+    "                 Status                 = 2
+    "                 Priority               = 3
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '013'
+    "                 Description            = 'Ergonomic office chairs'
+    "                 Status                 = 2
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '014'
+    "                 Description            = 'Office safety equipment (fire extinguishers, first aid kits)'
+    "                 Status                 = 3
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '015'
+    "                 Description            = 'Office printer maintenance and support contract'
+    "                 Status                 = 2
+    "                 Priority               = 3
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '016'
+    "                 Description            = 'Office IT accessories (keyboard, mouse, etc.)'
+    "                 Status                 = 3
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '017'
+    "                 Description            = 'Office stationeries (paper, pens, notebooks)'
+    "                 Status                 = 1
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '018'
+    "                 Description            = 'Networking cables and connectors'
+    "                 Status                 = 2
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '019'
+    "                 Description            = 'Conference room audio systems'
+    "                 Status                 = 3
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '020'
+    "                 Description            = 'Office cleaning supplies (disinfectants, cleaners)'
+    "                 Status                 = 2
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '021'
+    "                 Description            = 'Office whiteboards and presentation equipment'
+    "                 Status                 = 1
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '022'
+    "                 Description            = 'Air conditioning units for office spaces'
+    "                 Status                 = 3
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '023'
+    "                 Description            = 'Office security systems (cameras, alarms)'
+    "                 Status                 = 2
+    "                 Priority               = 3
+    "                 PurchasingOrganization = 'P02' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '024'
+    "                 Description            = 'Office furniture (desks, filing cabinets)'
+    "                 Status                 = 3
+    "                 Priority               = 1
+    "                 PurchasingOrganization = 'P03' ) TO lt_purchasedocuments.
+    " APPEND VALUE #( PurchaseDocument       = '025'
+    "                 Description            = 'Business travel agency services'
+    "                 Status                 = 1
+    "                 Priority               = 2
+    "                 PurchasingOrganization = 'P01' ) TO lt_purchasedocuments.
+
+    lt_purchasedocuments = VALUE #(
+        ( PurchaseDocument = 1  Description = 'Procurement of high-performance server racks'  Status = 1  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 2  Description = 'Order for safety helmets and gloves'           Status = 2  Priority = 2  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 3  Description = 'Purchase of industrial-grade hydraulic pumps'  Status = 3  Priority = 3  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 4  Description = 'Procurement of electrical control panels'      Status = 2  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 5  Description = 'Supply of stainless steel pipes'               Status = 1  Priority = 3  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 6  Description = 'Order for packaging and storage boxes'         Status = 3  Priority = 2  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 7  Description = 'Acquisition of backup diesel generators'       Status = 2  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 8  Description = 'Purchase of sensor calibration tools'          Status = 1  Priority = 2  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 9  Description = 'Requisition for workstation chairs'            Status = 3  Priority = 3  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 10 Description = 'Procurement of air conditioning units'         Status = 2  Priority = 2  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 11 Description = 'Order for welding and cutting tools'           Status = 1  Priority = 1  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 12 Description = 'Purchase of industrial lubricants'             Status = 3  Priority = 2  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 13 Description = 'Requisition of aluminum sheets'                Status = 2  Priority = 3  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 14 Description = 'Supply of high-temperature insulation mats'    Status = 1  Priority = 1  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 15 Description = 'Procurement of fire extinguishers'             Status = 3  Priority = 2  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 16 Description = 'Order for network switches and routers'        Status = 2  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 17 Description = 'Purchase of industrial fans and blowers'       Status = 1  Priority = 3  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 18 Description = 'Supply of power tools for workshop'            Status = 3  Priority = 2  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 19 Description = 'Procurement of laboratory test kits'           Status = 1  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 20 Description = 'Requisition of office stationery supplies'     Status = 2  Priority = 3  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 21 Description = 'Order for LED lighting systems'                Status = 3  Priority = 2  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 22 Description = 'Acquisition of construction safety gear'       Status = 1  Priority = 1  PurchasingOrganization = 'P01' )
+        ( PurchaseDocument = 23 Description = 'Procurement of IT accessories and cables'      Status = 2  Priority = 2  PurchasingOrganization = 'P03' )
+        ( PurchaseDocument = 24 Description = 'Purchase of maintenance service kits'          Status = 3  Priority = 3  PurchasingOrganization = 'P02' )
+        ( PurchaseDocument = 25 Description = 'Order for replacement machine components'      Status = 1  Priority = 1  PurchasingOrganization = 'P01' ) ).
 
     INSERT zhh_purchdoc FROM TABLE @lt_purchasedocuments.
 
@@ -199,412 +226,244 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
   METHOD fill_purchase_doc_item.
     DATA lt_purchase_items TYPE TABLE OF zhh_purchdocitem.
 
-    APPEND VALUE #( PurchaseDocument     = '001'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Laptops for office staff (i5, 8GB RAM)'
-                    Price                = 1000
-                    Quantity             = 25
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '001'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Laptop accessories (mice, keyboards)'
-                    Price                = 50
-                    Quantity             = 50
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+    lt_purchase_items = VALUE #(
+        Currency     = 'USD'
+        QuantityUnit = 'PC'
+        ( PurchaseDocument     = 1
+          PurchaseDocumentItem = 10
+          Description          = 'High-performance server rack'
+          Price                = 250
+          Quantity             = 16
+          Vendor               = 'VDR01'
+          VendorType           = 'I' )
+        ( PurchaseDocument     = 1
+          PurchaseDocumentItem = 20
+          Description          = 'Server rack cooling unit'
+          Price                = 400
+          Quantity             = 10
+          Vendor               = 'VDR02'
+          VendorType           = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '002'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office chairs (ergonomic, adjustable)'
-                    Price                = 150
-                    Quantity             = 30
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '002'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Executive chairs (leather, high-back)'
-                    Price                = 250
-                    Quantity             = 20
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR04'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 2 PurchaseDocumentItem = 10 Description = 'Safety helmet' Price = 180 Quantity = 20 Vendor = 'VDR03' VendorType = 'I' )
+        ( PurchaseDocument = 2 PurchaseDocumentItem = 20 Description = 'Protective gloves' Price = 150 Quantity = 25 Vendor = 'VDR01' VendorType = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '003'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Desks for office (adjustable height)'
-                    Price                = 300
-                    Quantity             = 40
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '003'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Workstations (with multiple screens)'
-                    Price                = 400
-                    Quantity             = 15
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 3
+          PurchaseDocumentItem = 10
+          Description          = 'Industrial hydraulic pump'
+          Price                = 700
+          Quantity             = 8
+          Vendor               = 'VDR04'
+          VendorType           = 'I' )
+        ( PurchaseDocument = 3 PurchaseDocumentItem = 20 Description = 'Hydraulic pump seal kit' Price = 180 Quantity = 18 Vendor = 'VDR05' VendorType = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '004'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Projector for conference room'
-                    Price                = 1200
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR05'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '004'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Projection screens (motorized)'
-                    Price                = 500
-                    Quantity             = 12
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 4 PurchaseDocumentItem = 10 Description = 'Electrical control panel' Price = 900 Quantity = 7 Vendor = 'VDR01' VendorType = 'I' )
+        ( PurchaseDocument     = 4
+          PurchaseDocumentItem = 20
+          Description          = 'Control panel mounting hardware'
+          Price                = 120
+          Quantity             = 35
+          Vendor               = 'VDR03'
+          VendorType           = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '005'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'External hard drives (2TB)'
-                    Price                = 100
-                    Quantity             = 40
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '005'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Network storage (5TB NAS)'
-                    Price                = 1500
-                    Quantity             = 5
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 5 PurchaseDocumentItem = 10 Description = 'Stainless steel pipe' Price = 300 Quantity = 25 Vendor = 'VDR02' VendorType = 'I' )
+        ( PurchaseDocument = 5 PurchaseDocumentItem = 20 Description = 'Pipe fittings' Price = 150 Quantity = 30 Vendor = 'VDR05' VendorType = 'E' )
+        ( PurchaseDocument = 5 PurchaseDocumentItem = 30 Description = 'Industrial cooling fan' Price = 500 Quantity = 12 Vendor = 'VDR02' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '006'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Air conditioning units for office'
-                    Price                = 800
-                    Quantity             = 12
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR04'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '006'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'HVAC filters and replacements'
-                    Price                = 150
-                    Quantity             = 50
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '008'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office decoration (plants, artwork)'
-                    Price                = 100
-                    Quantity             = 30
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '008'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Office wall clocks'
-                    Price                = 50
-                    Quantity             = 50
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 6 PurchaseDocumentItem = 10 Description = 'LED lighting system' Price = 400 Quantity = 14 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument = 6 PurchaseDocumentItem = 20 Description = 'Digital pressure gauge' Price = 600 Quantity = 11 Vendor = 'VDR02' VendorType = 'I' )
+        ( PurchaseDocument = 6 PurchaseDocumentItem = 30 Description = 'Light mounting brackets' Price = 200 Quantity = 20 Vendor = 'VDR01' VendorType = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '009'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Project management software licenses'
-                    Price                = 800
-                    Quantity             = 15
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '009'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Software licenses for accounting system (annual)'
-                    Price                = 1200
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 7
+          PurchaseDocumentItem = 10
+          Description          = 'Variable frequency drive (VFD)'
+          Price                = 800
+          Quantity             = 10
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 7 PurchaseDocumentItem = 20 Description = 'Backup safety sensor' Price = 400 Quantity = 12 Vendor = 'VDR04' VendorType = 'I' )
+        ( PurchaseDocument     = 7
+          PurchaseDocumentItem = 30
+          Description          = 'Industrial control relay'
+          Price                = 450
+          Quantity             = 10
+          Vendor               = 'VDR02'
+          VendorType           = 'I' )
+        ( PurchaseDocument = 7 PurchaseDocumentItem = 40 Description = 'Welding safety kit' Price = 250 Quantity = 15 Vendor = 'VDR01' VendorType = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '010'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office air purifiers (HEPA filter)'
-                    Price                = 1500000
-                    Quantity             = 5
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR05'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '010'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Air purifiers for large rooms'
-                    Price                = 1200000
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 8 PurchaseDocumentItem = 10 Description = 'Flexible connectors' Price = 350 Quantity = 15 Vendor = 'VDR03' VendorType = 'E' )
+        ( PurchaseDocument = 8 PurchaseDocumentItem = 20 Description = 'Heavy-duty storage bins' Price = 500 Quantity = 18 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument     = 8
+          PurchaseDocumentItem = 30
+          Description          = 'Stainless steel piping kit'
+          Price                = 300
+          Quantity             = 10
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 8 PurchaseDocumentItem = 40 Description = 'Network router' Price = 250 Quantity = 12 Vendor = 'VDR01' VendorType = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '011'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office lighting fixtures (LED, dimmable)'
-                    Price                = 75
-                    Quantity             = 50
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '011'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'LED light bulbs (for office use)'
-                    Price                = 30
-                    Quantity             = 150
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 9
+          PurchaseDocumentItem = 10
+          Description          = 'Grounding and protection unit'
+          Price                = 450
+          Quantity             = 8
+          Vendor               = 'VDR03'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 9 PurchaseDocumentItem = 20 Description = 'Air conditioning unit' Price = 600 Quantity = 9 Vendor = 'VDR05' VendorType = 'E' )
+        ( PurchaseDocument = 9 PurchaseDocumentItem = 30 Description = 'Flexible connectors' Price = 300 Quantity = 10 Vendor = 'VDR04' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '012'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Business software (CRM and ERP licenses)'
-                    Price                = 3000
-                    Quantity             = 5
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR04'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '012'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'HR management software licenses'
-                    Price                = 1500
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR05'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 10
+          PurchaseDocumentItem = 10
+          Description          = 'Server rack cooling unit'
+          Price                = 480
+          Quantity             = 15
+          Vendor               = 'VDR02'
+          VendorType           = 'E' )
+        ( PurchaseDocument     = 10
+          PurchaseDocumentItem = 20
+          Description          = 'Industrial fans and blowers'
+          Price                = 550
+          Quantity             = 12
+          Vendor               = 'VDR03'
+          VendorType           = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '013'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Ergonomic office chairs (adjustable)'
-                    Price                = 300
-                    Quantity             = 30
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '013'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Executive office chairs (leather, high-back)'
-                    Price                = 450
-                    Quantity             = 20
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 11
+          PurchaseDocumentItem = 10
+          Description          = 'Welding and cutting tools'
+          Price                = 600
+          Quantity             = 10
+          Vendor               = 'VDR01'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 11 PurchaseDocumentItem = 20 Description = 'Safety goggles' Price = 120 Quantity = 30 Vendor = 'VDR04' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '014'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Fire extinguishers (office use)'
-                    Price                = 150
-                    Quantity             = 20
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '014'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'First aid kits for office (compliance kits)'
-                    Price                = 60
-                    Quantity             = 30
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR05'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 12 PurchaseDocumentItem = 10 Description = 'Industrial lubricants' Price = 400 Quantity = 16 Vendor = 'VDR02' VendorType = 'E' )
+        ( PurchaseDocument     = 12
+          PurchaseDocumentItem = 20
+          Description          = 'Lubricant application kit'
+          Price                = 320
+          Quantity             = 12
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '015'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Printer maintenance service contract (12 months)'
-                    Price                = 250
-                    Quantity             = 1
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '015'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Printer toner (color)'
-                    Price                = 150
-                    Quantity             = 5
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR01'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 13 PurchaseDocumentItem = 10 Description = 'Aluminum sheets' Price = 350 Quantity = 20 Vendor = 'VDR03' VendorType = 'I' )
+        ( PurchaseDocument = 13 PurchaseDocumentItem = 20 Description = 'Sheet metal fasteners' Price = 150 Quantity = 25 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument = 13 PurchaseDocumentItem = 30 Description = 'Industrial paint' Price = 200 Quantity = 20 Vendor = 'VDR02' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '016'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office IT accessories (keyboard, mouse, etc.)'
-                    Price                = 25
-                    Quantity             = 100
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '016'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'External hard drives (2TB)'
-                    Price                = 150
-                    Quantity             = 20
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR04'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 14
+          PurchaseDocumentItem = 10
+          Description          = 'High-temperature insulation mats'
+          Price                = 380
+          Quantity             = 16
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 14 PurchaseDocumentItem = 20 Description = 'Insulation adhesive' Price = 220 Quantity = 25 Vendor = 'VDR04' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '017'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office stationeries (paper, pens, notebooks)'
-                    Price                = 15
-                    Quantity             = 200
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '017'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Whiteboard markers and erasers'
-                    Price                = 10
-                    Quantity             = 100
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR03'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument = 15 PurchaseDocumentItem = 10 Description = 'Fire extinguishers' Price = 500 Quantity = 15 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument = 15 PurchaseDocumentItem = 20 Description = 'Fire safety signage' Price = 100 Quantity = 40 Vendor = 'VDR03' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '018'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Networking cables (Cat6, 50 meters)'
-                    Price                = 20
-                    Quantity             = 50
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR02'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '018'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Patch panels (24 ports, rack mount)'
-                    Price                = 100
-                    Quantity             = 15
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 16
+          PurchaseDocumentItem = 10
+          Description          = 'Network switches and routers'
+          Price                = 650
+          Quantity             = 10
+          Vendor               = 'VDR02'
+          VendorType           = 'I' )
+        ( PurchaseDocument     = 16
+          PurchaseDocumentItem = 20
+          Description          = 'Switch mounting brackets'
+          Price                = 200
+          Quantity             = 15
+          Vendor               = 'VDR04'
+          VendorType           = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '019'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Conference room audio systems (speakers, microphonenumbers)'
-                    Price                = 500
-                    Quantity             = 5
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '019'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Conference room speaker system (wireless)'
-                    Price                = 250
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 17
+          PurchaseDocumentItem = 10
+          Description          = 'Industrial fans and blowers'
+          Price                = 550
+          Quantity             = 12
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
+        ( PurchaseDocument     = 17
+          PurchaseDocumentItem = 20
+          Description          = 'Control interface module'
+          Price                = 450
+          Quantity             = 10
+          Vendor               = 'VDR03'
+          VendorType           = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '020'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office cleaning supplies (disinfectants, mops)'
-                    Price                = 30
-                    Quantity             = 50
-                    QuantityUnit         = 'BOX'
-                    Vendor               = 'VDR01'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '020'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Office cleaning services (monthly)'
-                    Price                = 300
-                    Quantity             = 12
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 18
+          PurchaseDocumentItem = 10
+          Description          = 'Power tools for workshop'
+          Price                = 600
+          Quantity             = 14
+          Vendor               = 'VDR01'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 18 PurchaseDocumentItem = 20 Description = 'Tool storage cabinet' Price = 400 Quantity = 10 Vendor = 'VDR04' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '021'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office whiteboards (magnetic, 4x6 ft)'
-                    Price                = 200
-                    Quantity             = 25
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '021'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Office presentation tools (projectors, screens)'
-                    Price                = 500
-                    Quantity             = 15
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument = 19 PurchaseDocumentItem = 10 Description = 'Laboratory test kits' Price = 350 Quantity = 20 Vendor = 'VDR02' VendorType = 'I' )
+        ( PurchaseDocument     = 19
+          PurchaseDocumentItem = 20
+          Description          = 'Testing equipment calibration'
+          Price                = 650
+          Quantity             = 10
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '022'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Air conditioning units for office spaces'
-                    Price                = 800
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR05'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '022'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'HVAC filters and replacements'
-                    Price                = 150
-                    Quantity             = 40
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 20
+          PurchaseDocumentItem = 10
+          Description          = 'Office stationery supplies'
+          Price                = 120
+          Quantity             = 30
+          Vendor               = 'VDR03'
+          VendorType           = 'I' )
+        ( PurchaseDocument = 20 PurchaseDocumentItem = 20 Description = 'Desk organizers' Price = 200 Quantity = 20 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument     = 20
+          PurchaseDocumentItem = 30
+          Description          = 'Ergonomic workstation chair'
+          Price                = 550
+          Quantity             = 10
+          Vendor               = 'VDR04'
+          VendorType           = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '023'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office security systems (cameras, alarms)'
-                    Price                = 300
-                    Quantity             = 20
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR03'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '023'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Access control systems (cards, door readers)'
-                    Price                = 250
-                    Quantity             = 30
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR04'
-                    Currency             = 'EUR' ) TO lt_purchase_items.
+        ( PurchaseDocument = 21 PurchaseDocumentItem = 10 Description = 'LED lighting systems' Price = 400 Quantity = 15 Vendor = 'VDR01' VendorType = 'E' )
+        ( PurchaseDocument     = 21
+          PurchaseDocumentItem = 20
+          Description          = 'Light mounting hardware'
+          Price                = 350
+          Quantity             = 12
+          Vendor               = 'VDR05'
+          VendorType           = 'E' )
 
-    APPEND VALUE #( PurchaseDocument     = '024'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Network servers (rack-mountable)'
-                    Price                = 2000
-                    Quantity             = 8
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'USD' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '024'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Server software licenses (annual)'
-                    Price                = 500
-                    Quantity             = 15
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR05'
-                    Currency             = 'USD' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 22
+          PurchaseDocumentItem = 10
+          Description          = 'Construction safety gear'
+          Price                = 350
+          Quantity             = 15
+          Vendor               = 'VDR04'
+          VendorType           = 'I' )
+        ( PurchaseDocument = 22 PurchaseDocumentItem = 20 Description = 'Safety harness kit' Price = 400 Quantity = 12 Vendor = 'VDR02' VendorType = 'I' )
 
-    APPEND VALUE #( PurchaseDocument     = '025'
-                    PurchaseDocumentItem = '01'
-                    Description          = 'Office furniture (desks, chairs)'
-                    Price                = 250
-                    Quantity             = 50
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR02'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
-    APPEND VALUE #( PurchaseDocument     = '025'
-                    PurchaseDocumentItem = '02'
-                    Description          = 'Meeting room furniture (conference tables, chairs)'
-                    Price                = 500
-                    Quantity             = 10
-                    QuantityUnit         = 'PC'
-                    Vendor               = 'VDR01'
-                    Currency             = 'IDR' ) TO lt_purchase_items.
+        ( PurchaseDocument     = 23
+          PurchaseDocumentItem = 10
+          Description          = 'IT accessories and cables'
+          Price                = 200
+          Quantity             = 20
+          Vendor               = 'VDR01'
+          VendorType           = 'E' )
+        ( PurchaseDocument = 23 PurchaseDocumentItem = 20 Description = 'Cable management kits' Price = 450 Quantity = 10 Vendor = 'VDR05' VendorType = 'E' )
+
+        ( PurchaseDocument     = 24
+          PurchaseDocumentItem = 10
+          Description          = 'Maintenance service kits'
+          Price                = 500
+          Quantity             = 14
+          Vendor               = 'VDR03'
+          VendorType           = 'I' )
+        ( PurchaseDocument = 24 PurchaseDocumentItem = 20 Description = 'Repair tools' Price = 450 Quantity = 12 Vendor = 'VDR01' VendorType = 'E' )
+
+        ( PurchaseDocument = 25 PurchaseDocumentItem = 10 Description = 'Battery backup systems' Price = 650 Quantity = 10 Vendor = 'VDR04' VendorType = 'I' )
+        ( PurchaseDocument = 25 PurchaseDocumentItem = 20 Description = 'Power surge protectors' Price = 400 Quantity = 15 Vendor = 'VDR02' VendorType = 'I' )
+        ( PurchaseDocument = 25 PurchaseDocumentItem = 30 Description = 'Cable connectors' Price = 350 Quantity = 12 Vendor = 'VDR05' VendorType = 'E' ) ).
+
     INSERT zhh_purchdocitem FROM TABLE @lt_purchase_items.
 
     GET TIME STAMP FIELD DATA(lv_date).
@@ -615,8 +474,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
           crea_date_time = @lv_date,
           crea_uname = @lv_uname,
           lchg_date_time = @lv_date,
-          lchg_uname = @lv_uname,
-          vendortype = 'I'
+          lchg_uname = @lv_uname
       WHERE PurchaseDocumentitemImageURL IS INITIAL.
   ENDMETHOD.
 
@@ -636,7 +494,7 @@ CLASS zcl_hh_purch_doc_gen_data IMPLEMENTATION.
     APPEND VALUE #( status     = '2'
                     statustext = 'Approved' ) TO lt_status.
     APPEND VALUE #( status     = '3'
-                    statustext = 'Closed' ) TO lt_status.
+                    statustext = 'Rejected' ) TO lt_status.
     INSERT zhh_purchdocsts FROM TABLE @lt_status.
   ENDMETHOD.
 

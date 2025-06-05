@@ -2,18 +2,15 @@
 
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
-@EndUserText.label: 'Purchase Document Unmanaged'
+@EndUserText.label: 'Purchase Document'
 
 @Metadata.ignorePropagatedAnnotations: true
 
 @ObjectModel.usageType: { serviceQuality: #X, sizeCategory: #S, dataClass: #MIXED }
 
-@VDM.viewType: #COMPOSITE
-
-define root view entity ZI_HH_PurchaseDocument_U
+define root view entity ZI_HH_PurchaseDocumentTP
   as select from ZI_HH_PurchDocOverallPrice
-
-  composition [0..*] of ZI_HH_PurchaseDocumentItem_U as _PurchaseDocumentItem
+  composition [0..*] of ZI_HH_PurchaseDocumentItemTP as _PurchaseDocumentItem
   association [0..1] to ZI_HH_Indicator as _IsApprovalRequired on $projection.IsApprovalRequired = _IsApprovalRequired.IndicatorValue
 
 {
@@ -22,14 +19,12 @@ define root view entity ZI_HH_PurchaseDocument_U
       Description,
       Status,
       Priority,
-
-      @ObjectModel.foreignKey.association: '_IsApprovalRequired'
       case when OverallPrice > 15000 then 'X' else '' end as IsApprovalRequired,
 
       case when OverallPrice >= 0 and OverallPrice < 15000 then 3
-      when OverallPrice >= 15000 and OverallPrice <= 18000 then 2
-      when OverallPrice > 18000 then 1
-      else 0 end                                         as OverallPriceCriticality,
+      when OverallPrice > -15000 and OverallPrice <= 18000 then 2
+      when OverallPrice > 10000 then 1
+      else 0 end                                          as OverallPriceCriticality,
 
       OverallPrice,
       Currency,
@@ -40,11 +35,10 @@ define root view entity ZI_HH_PurchaseDocument_U
       lchg_date_time,
       lchg_uname,
 
-      /* Associations */
+      _PurchaseDocumentItem,
       _Currency,
       _Priority,
-      _PurchaseDocumentItem,
-      _PurchasingOrganization,
       _Status,
-      _IsApprovalRequired
+      _IsApprovalRequired,
+      _PurchasingOrganization
 }

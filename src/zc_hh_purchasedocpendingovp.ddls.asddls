@@ -7,8 +7,6 @@
 @Metadata.allowExtensions: true
 @Metadata.ignorePropagatedAnnotations: true
 
-@ObjectModel.usageType: { serviceQuality: #X, sizeCategory: #S, dataClass: #MIXED }
-
 @VDM.viewType: #CONSUMPTION
 
 define view entity ZC_HH_PurchaseDocPendingOVP
@@ -29,8 +27,8 @@ define view entity ZC_HH_PurchaseDocPendingOVP
       Currency,
       _PurchaseDocument.Priority,
       _PurchaseDocument.Status,
-      _PurchaseDocument._Priority.PriorityText,
-      _PurchaseDocument._Status.StatusText,
+      _PurchaseDocument._Priority.PriorityText as PriorityText,
+      _PurchaseDocument._Status.StatusText as StatusText,
       _PurchaseDocument.PurchasingOrganization,
 
       _PurchaseDocument

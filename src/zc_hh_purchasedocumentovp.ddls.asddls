@@ -27,7 +27,9 @@ define view entity ZC_HH_PurchaseDocumentOVP
       _Priority.PriorityText,
       Status,
       _Status.StatusText,
-      cast(1 as abap.dec(9))  as TotalNumberofDocuments,
+
+      @DefaultAggregation: #SUM
+      cast(1 as abap.dec(9,0)) as TotalNumberofDocuments,
 
       _Priority,
       _Status

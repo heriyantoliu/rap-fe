@@ -1,0 +1,26 @@
+@Metadata.layer: #CUSTOMER
+
+annotate entity ZC_HH_PurchaseDocBudgetOVP
+  with
+
+{
+  @UI.lineItem: [ { position: 10 } ]
+  PurchaseDocument;
+
+  @UI.lineItem: [ { position: 20 } ]
+  @UI.dataPoint:{ title: 'Created On' }
+  crea_date_time;
+
+  @UI.lineItem: [ { position: 30 } ]
+  PurchasingOrganization;
+
+  @UI.dataPoint: { title: 'Overall Price',
+                   valueFormat.numberOfFractionalDigits: 2,
+                   minimumValue: 0,
+                   maximumValue: 100,
+                   criticalityCalculation: { improvementDirection: #MINIMIZE,
+                                             toleranceRangeHighValue: 80,
+                                             deviationRangeHighValue: 100 } }
+  @UI.lineItem: [ { position: 40, type: #AS_DATAPOINT } ]
+  BudgetUtilization;
+}

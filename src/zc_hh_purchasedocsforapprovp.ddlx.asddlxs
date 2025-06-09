@@ -1,0 +1,24 @@
+@Metadata.layer: #CUSTOMER
+
+annotate entity ZC_HH_PurchaseDocsforApprOVP
+  with
+
+{
+  @UI.lineItem: [ { position: 10, label: 'Document' } ]
+  PurchaseDocument;
+
+  @UI.lineItem: [ { position: 20, label: 'Description' } ]
+  Description;
+
+  @UI.lineItem: [ { position: 30, label: 'Priority' } ]
+  PriorityText;
+
+  @UI.lineItem: [ { position: 40, label: 'Created By' } ]
+  crea_uname;
+
+  @UI.lineItem: [ { position: 50, label: 'Total Price' } ]
+  OverallPrice;
+
+  @UI.lineItem: [ { position: 60, label: 'Approval' } ]
+  Approval;
+}

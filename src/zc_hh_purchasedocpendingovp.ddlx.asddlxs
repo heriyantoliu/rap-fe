@@ -1,0 +1,30 @@
+@Metadata.layer: #CUSTOMER
+
+annotate entity ZC_HH_PurchaseDocPendingOVP
+  with
+
+{
+  @UI.lineItem: [ { position: 10, label: 'Document' } ]
+  PurchaseDocumentDescription;
+
+  @UI.lineItem: [ { position: 20, label: 'Item name' } ]
+  Description;
+
+  @UI.lineItem: [ { position: 30, label: 'Quantity' } ]
+  Quantity;
+
+  @UI.lineItem: [ { position: 40, label: 'Total Price' } ]
+  OverallItemPrice;
+
+  @UI.lineItem: [ { position: 50, label: 'Created By' } ]
+  crea_uname;
+
+  @UI.lineItem: [ { position: 60, label: 'Status' } ]
+  StatusText;
+
+  @UI.lineItem: [ { position: 70, label: 'Priority' } ]
+  PriorityText;
+
+  @UI.lineItem: [ { position: 80, label: 'Currency' } ]
+  Currency;
+}
